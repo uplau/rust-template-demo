@@ -1,0 +1,32 @@
+# Your repository won't have this file
+# secrets.PAT_CODE_ACTIONS
+
+name: Trigger release
+run-name: Release ${{ github.ref_name }} on ${{ github.event_name }}
+
+on:
+  workflow_dispatch:
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  trigger:
+    name: Trigger
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.PAT_CODE_ACTIONS }}
+      - name: Random commit
+        run: |
+          ########## script ##########
+          random_str="$(uuidgen)"
+          echo "hello ${random_str}" | tee "src/test_${{ github.ref_name }}"
+
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add .
+          git commit -m "feat: i am ${{ github.ref_name }}-${random_str}" -m "feat: some feat..." -m "fix: i have no idea" -m "fix: some error..."
+          git push --force-with-lease origin
