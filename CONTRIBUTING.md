@@ -1,4 +1,4 @@
-# Contributing to rust-template-demo-bin-yes-use-all
+# Contributing to rust-template-demo-bin-default-use
 
 We love your input!
 

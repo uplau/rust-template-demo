@@ -1,5 +1,5 @@
 [package]
-name = "rust-template-demo-bin-yes-use-all"
+name = "rust-template-demo-bin-default-use"
 version = "0.1.0"
 edition = "2021"
 license = "MIT OR Apache-2.0"
