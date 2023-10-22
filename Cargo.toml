@@ -1,5 +1,5 @@
 [package]
-name = "rust-template-demo-bin-yes-use-all"
+name = "rust-template-demo-lib-default-use"
 version = "0.1.0"
 edition = "2021"
 license = "MIT OR Apache-2.0"
@@ -8,7 +8,7 @@ license = "MIT OR Apache-2.0"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 [dependencies]
-anyhow = { version = "1" }
+thiserror= { version = "1" }
 human-panic = "1"
 lazy_static = "1.4"
 serde = { version = "1", features = ["derive"] }
@@ -21,3 +21,5 @@ lto = true
 opt-level = "s"
 strip = true
 
+[lib]
+crate-type = ["rlib"]
